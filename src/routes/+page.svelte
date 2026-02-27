@@ -58,6 +58,13 @@
 		],
 		projects: [
 			{
+				id: 'portfolio',
+				title: 'This Portfolio',
+				description: 'The source code for this portfolio website.',
+				gitProvider: 'gitea',
+				gitUrl: 'https://git.whoswhip.dev/whoswhip/portfolio'
+			},
+			{
 				id: 'sharpbin',
 				title: 'Sharpbin',
 				description:
