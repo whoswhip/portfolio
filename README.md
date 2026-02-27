@@ -111,3 +111,97 @@ let config: Configuration = {
     }
   ]
 };
+```
+
+## Development
+
+### Prerequisites
+
+- [Bun](https://bun.sh/) (v1.0+)
+
+### Setup
+
+1. Clone the repository:
+```bash
+git clone <your-repo-url>
+cd portfolio
+```
+
+2. Install dependencies:
+```bash
+bun install
+```
+
+3. Start the development server:
+```bash
+bun run dev
+```
+
+The site will be available at `http://localhost:5173` with hot module replacement enabled.
+
+### Build & Preview
+
+To test a production build locally:
+
+```bash
+bun run build
+bun run preview
+```
+
+## Hosting
+
+### Docker Deployment (Recommended)
+
+The project includes Docker configuration for easy deployment with Nginx serving the static build.
+
+#### Quick Start
+
+```bash
+docker compose up -d
+```
+
+The portfolio will be accessible at `http://localhost:3000`.
+
+#### Custom Port
+
+Edit `docker-compose.yml` or use environment variables:
+
+```bash
+PORT=8080 docker compose up -d
+```
+
+#### Rebuild After Changes
+
+```bash
+docker compose up -d --build
+```
+
+### Manual Deployment
+
+For manual deployment to any static hosting provider:
+
+1. **Build the static site:**
+```bash
+bun install
+bun run build
+```
+
+2. **Deploy the `build` folder** to your hosting provider:
+   - Vercel, Netlify, Cloudflare Pages, etc.
+   - Any static file server (Nginx, Apache, etc.)
+   - CDN providers
+
+#### Example: Deploy to Nginx
+
+```bash
+# Build the project
+bun run build
+
+# Copy to web root
+sudo cp -r .svelte-kit/output/* /var/www/html/
+
+# Configure Nginx (example)
+sudo cp nginx.conf /etc/nginx/sites-available/portfolio
+sudo ln -s /etc/nginx/sites-available/portfolio /etc/nginx/sites-enabled/
+sudo nginx -t && sudo systemctl reload nginx
+```
