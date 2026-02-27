@@ -15,6 +15,7 @@
 
 	let config: Configuration = {
 		name: 'whoswhip',
+		shortDescription: 'I\'m a full stack developer, mainly working with C#.',
 		profilePicture: {
 			url: '/pfp.jpg',
 			alt: 'Picture of an orange sunset with trees and a power line in the foreground, taken by whoswhip'
@@ -129,6 +130,24 @@
 		clearCreditsTooltipTimeout();
 	});
 </script>
+
+<svelte:head>
+	<title>{config.name}</title>
+	<meta name="description" content={config.shortDescription} />
+
+	<meta property="og:title" content={config.name} />
+	<meta property="og:description" content={config.shortDescription} />
+	{#if config.profilePicture}
+		<meta property="og:image" content={config.profilePicture.url} />
+	{/if}
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={config.name} />
+	<meta name="twitter:description" content={config.shortDescription} />
+	{#if config.profilePicture}
+		<meta name="twitter:image" content={config.profilePicture.url} />
+	{/if}
+	<meta name="theme-color" content={config.primaryColor} />
+</svelte:head>
 
 <main class="flex min-h-[calc(100vh-8rem)] w-full flex-col gap-12 bg-black font-medium md:flex-row">
 	<div class="flex w-full shrink-0 flex-col gap-2 md:max-w-75">

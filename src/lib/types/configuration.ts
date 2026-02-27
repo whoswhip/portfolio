@@ -4,6 +4,8 @@ import type { ProfilePicture } from './profilePicture';
 
 export interface Configuration {
 	name: string;
+	title?: string;
+	shortDescription?: string;
 	profilePicture?: ProfilePicture;
 	primaryColor: string;
 	pronouns: string;
