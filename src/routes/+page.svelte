@@ -8,14 +8,15 @@
 		SiX,
 		SiLastdotfm
 	} from '@icons-pack/svelte-simple-icons';
-	import { onDestroy, onMount, type Component } from 'svelte';
+	import { browser } from '$app/environment';
+	import { onDestroy, type Component } from 'svelte';
 	import AboutMe from '$lib/AboutMe.svelte';
 	import type { Configuration } from '$lib/types/configuration';
 	import { slide } from 'svelte/transition';
 
 	let config: Configuration = {
 		name: 'whoswhip',
-		shortDescription: 'I\'m a full stack developer, mainly working with C#.',
+		shortDescription: "I'm a full stack developer, mainly working with C#.",
 		profilePicture: {
 			url: '/pfp.jpg',
 			alt: 'Picture of an orange sunset with trees and a power line in the foreground, taken by whoswhip'
@@ -77,10 +78,11 @@
 		]
 	};
 
-	let time = '00:00 AM';
+	let time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 	let showProjects = true;
 	let showCreditsTooltip = false;
 	let hideCreditsTooltipTimeout: ReturnType<typeof setTimeout> | undefined;
+	let clockInterval: ReturnType<typeof setInterval> | undefined;
 
 	const getIcon = (socialId: string) => {
 		const icons: Record<string, { component: Component; size: number }> = {
@@ -113,21 +115,23 @@
 		}, 120);
 	};
 
-	onMount(() => {
-		const updateTime = () => {
-			const now = new Date();
-			const utc = new Date(now.getTime() + now.getTimezoneOffset() * 60000);
-			const localtime = new Date(utc.getTime() + config.timezone * 3600000);
-			time = localtime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-		};
+	const updateTime = () => {
+		const now = new Date();
+		const utc = new Date(now.getTime() + now.getTimezoneOffset() * 60000);
+		const localtime = new Date(utc.getTime() + config.timezone * 3600000);
+		time = localtime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+	};
 
+	if (browser) {
 		updateTime();
-		const interval = setInterval(updateTime, 6000);
-		return () => clearInterval(interval);
-	});
+		clockInterval = setInterval(updateTime, 6000);
+	}
 
 	onDestroy(() => {
 		clearCreditsTooltipTimeout();
+		if (clockInterval) {
+			clearInterval(clockInterval);
+		}
 	});
 </script>
 
@@ -324,14 +328,20 @@
 			<span class="text-red-400">
 				<Heart fill="currentColor" size={16} />
 			</span>
-			Made by <a href="https://whoswhip.dev" class="hover:underline" style="color: {config.primaryColor}">whoswhip</a>
+			Made by
+			<a href="https://whoswhip.dev" class="hover:underline" style="color: {config.primaryColor}"
+				>whoswhip</a
+			>
 		</div>
 
 		<div class="flex items-center gap-1">
 			<span style="color: {config.primaryColor}">
 				<Globe size={16} />
 			</span>
-			Heavily inspired by <a href="https://shi.gg" class="hover:underline" style="color: {config.primaryColor}">shi.gg</a>
+			Heavily inspired by
+			<a href="https://shi.gg" class="hover:underline" style="color: {config.primaryColor}"
+				>shi.gg</a
+			>
 		</div>
 	</div>
 </footer>

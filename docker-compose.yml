@@ -6,6 +6,6 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "${PORT:-3000}:80"
+      - '${PORT:-3000}:80'
     restart: unless-stopped
     container_name: portfolio
