@@ -20,7 +20,7 @@
 			url: '/pfp.jpg',
 			alt: 'Picture of an orange sunset with trees and a power line in the foreground, taken by whoswhip'
 		},
-		primaryColor: '#7cdef9',
+		primaryColor: '#ddbe94',
 		pronouns: 'He/Him',
 		timezone: -5,
 		socials: [
@@ -140,7 +140,7 @@
 	{#if config.profilePicture}
 		<meta property="og:image" content={config.profilePicture.url} />
 	{/if}
-	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:title" content={config.name} />
 	<meta name="twitter:description" content={config.shortDescription} />
 	{#if config.profilePicture}
@@ -180,7 +180,8 @@
 									{#if config.profilePicture.credits.url}
 										<a
 											href={config.profilePicture.credits.url}
-											class="text-blue-400 hover:underline"
+											class="hover:underline"
+											style="color: {config.primaryColor}"
 										>
 											{config.profilePicture.credits.name}
 										</a>
@@ -286,7 +287,8 @@
 							<div class="mt-2 flex flex-col gap-2">
 								<a
 									href={project.gitUrl}
-									class="flex items-center gap-2 text-blue-400 hover:underline"
+									class="flex items-center gap-2 hover:underline"
+									style="color: {config.primaryColor}"
 								>
 									<span style="color: {config.primaryColor}">
 										<svelte:component
@@ -299,7 +301,8 @@
 								{#if project.liveUrl}
 									<a
 										href={project.liveUrl}
-										class="flex items-center gap-2 text-blue-400 hover:underline"
+										class="flex items-center gap-2 hover:underline"
+										style="color: {config.primaryColor}"
 									>
 										<span style="color: {config.primaryColor}">
 											<Globe size={18} />
@@ -321,14 +324,14 @@
 			<span class="text-red-400">
 				<Heart fill="currentColor" size={16} />
 			</span>
-			Made by <a href="https://whoswhip.dev" class="text-blue-400 hover:underline">whoswhip</a>
+			Made by <a href="https://whoswhip.dev" class="hover:underline" style="color: {config.primaryColor}">whoswhip</a>
 		</div>
 
 		<div class="flex items-center gap-1">
 			<span style="color: {config.primaryColor}">
 				<Globe size={16} />
 			</span>
-			Heavily inspired by <a href="https://shi.gg" class="text-blue-400 hover:underline">shi.gg</a>
+			Heavily inspired by <a href="https://shi.gg" class="hover:underline" style="color: {config.primaryColor}">shi.gg</a>
 		</div>
 	</div>
 </footer>
