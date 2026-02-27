@@ -288,7 +288,7 @@
 			</div>
 			{#if showProjects}
 				<div
-					class="mt-6 flex max-h-[calc(100vh-25rem)] flex-col gap-4 overflow-y-auto"
+					class="mt-6 flex md:max-h-[calc(100vh-25rem)] flex-col gap-4 overflow-y-auto"
 					transition:slide={{ duration: 250 }}
 				>
 					{#each config.projects as project (project.id)}
