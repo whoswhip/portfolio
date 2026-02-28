@@ -24,7 +24,7 @@
 		primaryColor: '#ddbe94',
 		pronouns: 'He/Him',
 		timezone: -5,
-		socials: [
+		links: [
 			{
 				id: 'github',
 				label: 'Github',
@@ -251,7 +251,7 @@
 		</div>
 		<div class="mt-2 h-px w-full shrink-0 bg-neutral-600/50"></div>
 		<div class="mt-4 flex flex-col gap-2">
-			{#each config.socials as social (social.id)}
+			{#each config.links as social (social.id)}
 				<a href={social.url}>
 					<div class="flex w-full items-center gap-2 text-[16px] leading-6 text-white">
 						<span style="color: {config.primaryColor}">

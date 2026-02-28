@@ -10,6 +10,6 @@ export interface Configuration {
 	primaryColor: string;
 	pronouns: string;
 	timezone: number;
-	socials: Link[];
+	links: Link[];
 	projects: Project[];
 }
