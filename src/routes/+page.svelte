@@ -288,7 +288,7 @@
 			</div>
 			{#if showProjects}
 				<div
-					class="mt-6 flex md:max-h-[calc(100vh-25rem)] flex-col gap-4 overflow-y-auto"
+					class="mt-6 flex flex-col gap-4 overflow-y-auto md:max-h-[calc(100vh-25rem)]"
 					transition:slide={{ duration: 250 }}
 				>
 					{#each config.projects as project (project.id)}
@@ -296,19 +296,21 @@
 							<h2 class="text-2xl">{project.title}</h2>
 							<p>{project.description}</p>
 							<div class="mt-2 flex flex-col gap-2">
-								<a
-									href={project.gitUrl}
-									class="flex items-center gap-2 hover:underline"
-									style="color: {config.primaryColor}"
-								>
-									<span style="color: {config.primaryColor}">
-										<svelte:component
-											this={getIcon(project.gitProvider).component}
-											size={getIcon(project.gitProvider).size}
-										/>
-									</span>
-									View Source
-								</a>
+								{#if project.gitUrl && project.gitProvider}
+									<a
+										href={project.gitUrl}
+										class="flex items-center gap-2 hover:underline"
+										style="color: {config.primaryColor}"
+									>
+										<span style="color: {config.primaryColor}">
+											<svelte:component
+												this={getIcon(project.gitProvider).component}
+												size={getIcon(project.gitProvider).size}
+											/>
+										</span>
+										View Source
+									</a>
+								{/if}
 								{#if project.liveUrl}
 									<a
 										href={project.liveUrl}
@@ -336,8 +338,10 @@
 				<Heart fill="currentColor" size={16} />
 			</span>
 			Made by
-			<a href="https://git.whoswhip.dev/whoswhip/portfolio" class="hover:underline" style="color: {config.primaryColor}"
-				>whoswhip</a
+			<a
+				href="https://git.whoswhip.dev/whoswhip/portfolio"
+				class="hover:underline"
+				style="color: {config.primaryColor}">whoswhip</a
 			>
 		</div>
 
