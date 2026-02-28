@@ -1,4 +1,4 @@
-import type { Social } from './social';
+import type { Link } from './link';
 import type { Project } from './project';
 import type { ProfilePicture } from './profilePicture';
 
@@ -10,6 +10,6 @@ export interface Configuration {
 	primaryColor: string;
 	pronouns: string;
 	timezone: number;
-	socials: Social[];
+	socials: Link[];
 	projects: Project[];
 }
