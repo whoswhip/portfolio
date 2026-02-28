@@ -27,9 +27,9 @@ Essentially all configuration is managed through the `config` object in [src/rou
 
 > The entire `profilePicture` object is optional.
 
-### Socials
+### Links/Socials
 
-Array of social media links. Each entry:
+Array of links. Each entry:
 
 | Field     | Type     | Required | Description                                                                    |
 | --------- | -------- | -------- | ------------------------------------------------------------------------------ |
@@ -47,8 +47,8 @@ Array of project showcases. Each entry:
 | `id`          | `string` | Yes      | Unique identifier                               |
 | `title`       | `string` | Yes      | Project name                                    |
 | `description` | `string` | Yes      | Brief project description                       |
-| `gitProvider` | `string` | Yes      | Git provider for icon (`github`, `gitea`, etc.) |
-| `gitUrl`      | `string` | Yes      | Repository URL                                  |
+| `gitProvider` | `string` | No       | Git provider for icon (`github`, `gitea`, etc.) |
+| `gitUrl`      | `string` | No       | Repository URL                                  |
 | `liveUrl`     | `string` | No       | Production/demo URL                             |
 
 ### About Me Content
@@ -92,7 +92,7 @@ let config: Configuration = {
 	primaryColor: '#b49068',
 	pronouns: 'He/Him',
 	timezone: -5,
-	socials: [
+	links: [
 		{
 			id: 'github',
 			label: 'Github',
