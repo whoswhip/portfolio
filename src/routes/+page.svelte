@@ -336,7 +336,7 @@
 				<Heart fill="currentColor" size={16} />
 			</span>
 			Made by
-			<a href="https://whoswhip.dev" class="hover:underline" style="color: {config.primaryColor}"
+			<a href="https://git.whoswhip.dev/whoswhip/portfolio" class="hover:underline" style="color: {config.primaryColor}"
 				>whoswhip</a
 			>
 		</div>

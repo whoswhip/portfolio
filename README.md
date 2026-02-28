@@ -124,7 +124,7 @@ let config: Configuration = {
 1. Clone the repository:
 
 ```bash
-git clone <your-repo-url>
+git clone https://git.whoswhip.dev/whoswhip/portfolio.git
 cd portfolio
 ```
 
