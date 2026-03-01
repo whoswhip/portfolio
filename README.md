@@ -25,7 +25,7 @@ Essentially all configuration is managed through the `config` object in [src/rou
 | `profilePicture.credits.name` | `string` | No       | Credit attribution name                                |
 | `profilePicture.credits.url`  | `string` | No       | Link to credit source or creator                       |
 
-> The entire `profilePicture` object is optional.
+*The entire `profilePicture` object is optional.
 
 ### Links/Socials
 
@@ -54,13 +54,6 @@ Array of project showcases. Each entry:
 ### About Me Content
 
 Your bio/about section is managed in [src/lib/AboutMe.svelte](src/lib/AboutMe.svelte) as a separate component to allow full customization.
-
-**What you can customize:**
-
-- Full HTML/Svelte markup support
-- Dynamic content with TypeScript logic (e.g., calculating years of experience)
-- Custom styling, bold text, links, lists, etc.
-- Component imports if needed
 
 **Example from the default component:**
 
@@ -140,7 +133,7 @@ bun install
 bun run dev
 ```
 
-The site will be available at `http://localhost:5173` with hot module replacement enabled.
+The site will be available at `http://localhost:5173`.
 
 ### Build & Preview
 
@@ -154,9 +147,6 @@ bun run preview
 ## Hosting
 
 ### Docker Deployment (Recommended)
-
-The project includes Docker configuration for easy deployment with Nginx serving the static build.
-
 #### Quick Start
 
 ```bash
@@ -190,7 +180,7 @@ bun install
 bun run build
 ```
 
-2. **Deploy the `build` folder** to your hosting provider:
+2. **Deploy the `.svelte-kit/output` folder** to your hosting provider:
    - Vercel, Netlify, Cloudflare Pages, etc.
    - Any static file server (Nginx, Apache, etc.)
    - CDN providers
