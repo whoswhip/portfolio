@@ -251,21 +251,21 @@
 		</div>
 		<div class="mt-2 h-px w-full shrink-0 bg-neutral-600/50"></div>
 		<div class="mt-4 flex flex-col gap-2">
-			{#each config.links as social (social.id)}
-				<a href={social.url}>
+			{#each config.links as link (link.id)}
+				<a href={link.url}>
 					<div class="flex w-full items-center gap-2 text-[16px] leading-6 text-white">
 						<span style="color: {config.primaryColor}">
 							<svelte:component
-								this={getIcon(social.id).component}
-								size={getIcon(social.id).size}
+								this={getIcon(link.id).component}
+								size={getIcon(link.id).size}
 							/>
 						</span>
-						{social.label}
+						{link.label}
 						<span
 							class="ml-auto rounded-l-full rounded-r-full border border-neutral-600 pr-2 pl-2 hover:brightness-150"
 							style="color: {config.primaryColor}"
 						>
-							{social.display}
+							{link.display}
 						</span>
 					</div>
 				</a>
