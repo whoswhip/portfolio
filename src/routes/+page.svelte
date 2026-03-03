@@ -18,7 +18,7 @@
 		name: 'whoswhip',
 		shortDescription: "I'm a full stack developer, mainly working with C#.",
 		profilePicture: {
-			url: '/pfp.jpg',
+			url: '/pfp.webp',
 			alt: 'Picture of an orange sunset with trees and a power line in the foreground, taken by whoswhip'
 		},
 		primaryColor: '#ddbe94',
