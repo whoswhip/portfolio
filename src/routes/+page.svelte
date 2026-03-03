@@ -261,7 +261,10 @@
 							/>
 						</span>
 						{social.label}
-						<span class="ml-auto hover:brightness-150" style="color: {config.primaryColor}">
+						<span
+							class="ml-auto rounded-l-full rounded-r-full border border-neutral-600 pr-2 pl-2 hover:brightness-150"
+							style="color: {config.primaryColor}"
+						>
 							{social.display}
 						</span>
 					</div>
