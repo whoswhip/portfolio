@@ -249,89 +249,93 @@
 				</div>
 			</div>
 		</div>
-		<div class="mt-2 h-px w-full shrink-0 bg-neutral-600/50"></div>
-		<div class="mt-4 flex flex-col gap-2">
-			{#each config.links as link (link.id)}
-				<a href={link.url}>
-					<div class="flex w-full items-center gap-2 text-[16px] leading-6 text-white">
-						<span style="color: {config.primaryColor}">
-							<svelte:component
-								this={getIcon(link.id).component}
-								size={getIcon(link.id).size}
-							/>
-						</span>
-						{link.label}
-						<span
-							class="ml-auto rounded-l-full rounded-r-full border border-neutral-600 pr-2 pl-2 hover:brightness-150"
-							style="color: {config.primaryColor}"
-						>
-							{link.display}
-						</span>
-					</div>
-				</a>
-			{/each}
-		</div>
+		{#if config.links && config.links.length > 0}
+			<div class="mt-2 h-px w-full shrink-0 bg-neutral-600/50"></div>
+			<div class="mt-4 flex flex-col gap-2">
+				{#each config.links as link (link.id)}
+					<a href={link.url}>
+						<div class="flex w-full items-center gap-2 text-[16px] leading-6 text-white">
+							<span style="color: {config.primaryColor}">
+								<svelte:component this={getIcon(link.id).component} size={getIcon(link.id).size} />
+							</span>
+							{link.label}
+							<span
+								class="ml-auto rounded-l-full rounded-r-full border border-neutral-600 pr-2 pl-2 hover:brightness-150"
+								style="color: {config.primaryColor}"
+							>
+								{link.display}
+							</span>
+						</div>
+					</a>
+				{/each}
+			</div>
+		{/if}
 	</div>
 	<div class="mb-8 text-lg text-white">
 		<div>
 			<h1 class="mb-2 text-4xl">Hello!</h1>
 			<AboutMe />
 		</div>
-		<div class="mt-4 h-px w-full shrink-0 bg-neutral-600/50"></div>
-		<div>
-			<div class="mt-2 flex justify-between">
-				<h1 class="text-4xl">Projects</h1>
-				<button class="p-1 hover:text-neutral-300" on:click={() => (showProjects = !showProjects)}>
-					{#if showProjects}
-						<ChevronUp size={32} />
-					{:else}
-						<ChevronDown size={32} />
-					{/if}
-				</button>
-			</div>
-			{#if showProjects}
-				<div
-					class="mt-6 flex flex-col gap-4 overflow-y-auto md:max-h-[calc(100vh-25rem)]"
-					transition:slide={{ duration: 250 }}
-				>
-					{#each config.projects as project (project.id)}
-						<div class="flex flex-col gap-2 rounded-md border border-neutral-600 p-4">
-							<h2 class="text-2xl">{project.title}</h2>
-							<p>{project.description}</p>
-							<div class="mt-2 flex flex-col gap-2">
-								{#if project.gitUrl && project.gitProvider}
-									<a
-										href={project.gitUrl}
-										class="flex items-center gap-2 hover:underline"
-										style="color: {config.primaryColor}"
-									>
-										<span style="color: {config.primaryColor}">
-											<svelte:component
-												this={getIcon(project.gitProvider).component}
-												size={getIcon(project.gitProvider).size}
-											/>
-										</span>
-										View Source
-									</a>
-								{/if}
-								{#if project.liveUrl}
-									<a
-										href={project.liveUrl}
-										class="flex items-center gap-2 hover:underline"
-										style="color: {config.primaryColor}"
-									>
-										<span style="color: {config.primaryColor}">
-											<Globe size={18} />
-										</span>
-										Live Instance
-									</a>
-								{/if}
-							</div>
-						</div>
-					{/each}
+		{#if config.projects && config.projects.length > 0}
+			<div class="mt-4 h-px w-full shrink-0 bg-neutral-600/50"></div>
+			<div>
+				<div class="mt-2 flex justify-between">
+					<h1 class="text-4xl">Projects</h1>
+					<button
+						class="p-1 hover:text-neutral-300"
+						on:click={() => (showProjects = !showProjects)}
+					>
+						{#if showProjects}
+							<ChevronUp size={32} />
+						{:else}
+							<ChevronDown size={32} />
+						{/if}
+					</button>
 				</div>
-			{/if}
-		</div>
+				{#if showProjects}
+					<div
+						class="mt-6 flex flex-col gap-4 overflow-y-auto md:max-h-[calc(100vh-25rem)]"
+						transition:slide={{ duration: 250 }}
+					>
+						{#each config.projects as project (project.id)}
+							<div class="flex flex-col gap-2 rounded-md border border-neutral-600 p-4">
+								<h2 class="text-2xl">{project.title}</h2>
+								<p>{project.description}</p>
+								<div class="mt-2 flex flex-col gap-2">
+									{#if project.gitUrl && project.gitProvider}
+										<a
+											href={project.gitUrl}
+											class="flex items-center gap-2 hover:underline"
+											style="color: {config.primaryColor}"
+										>
+											<span style="color: {config.primaryColor}">
+												<svelte:component
+													this={getIcon(project.gitProvider).component}
+													size={getIcon(project.gitProvider).size}
+												/>
+											</span>
+											View Source
+										</a>
+									{/if}
+									{#if project.liveUrl}
+										<a
+											href={project.liveUrl}
+											class="flex items-center gap-2 hover:underline"
+											style="color: {config.primaryColor}"
+										>
+											<span style="color: {config.primaryColor}">
+												<Globe size={18} />
+											</span>
+											Live Instance
+										</a>
+									{/if}
+								</div>
+							</div>
+						{/each}
+					</div>
+				{/if}
+			</div>
+		{/if}
 	</div>
 </main>
 <footer class="w-full border-t border-neutral-600/50 pt-4 text-sm text-neutral-500">

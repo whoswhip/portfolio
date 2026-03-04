@@ -10,6 +10,6 @@ export interface Configuration {
 	primaryColor: string;
 	pronouns: string;
 	timezone: number;
-	links: Link[];
-	projects: Project[];
+	links?: Link[];
+	projects?: Project[];
 }
