@@ -2,7 +2,7 @@ import type { Configuration } from './types/configuration';
 
 export const config: Configuration = {
 	name: 'whoswhip',
-	shortDescription: "I'm a full stack developer, mainly working with C#.",
+	shortDescription: "I'm a full stack developer, working mainly with C#.",
 	profilePicture: {
 		url: '/pfp.webp',
 		alt: 'Picture of an orange sunset with trees and a power line in the foreground, taken by whoswhip'
