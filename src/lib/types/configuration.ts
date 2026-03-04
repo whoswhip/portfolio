@@ -1,6 +1,7 @@
 import type { Link } from './link';
 import type { Project } from './project';
 import type { ProfilePicture } from './profilePicture';
+import type { Analytics } from './analytics';
 
 export interface Configuration {
 	name: string;
@@ -12,4 +13,5 @@ export interface Configuration {
 	timezone: number;
 	links?: Link[];
 	projects?: Project[];
+	analytics?: Analytics;
 }

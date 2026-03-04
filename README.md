@@ -3,7 +3,7 @@ At least a little bit of knowledge on svelte/html/typescript is required if you 
 
 ## Configuration
 
-Essentially all configuration is managed through the `config` object in [src/routes/+page.svelte](src/routes/+page.svelte).
+Essentially all configuration is managed through the `config` object in [src/lib/config.ts](src/lib/config.ts)
 
 ### Basic Information
 
@@ -25,7 +25,7 @@ Essentially all configuration is managed through the `config` object in [src/rou
 | `profilePicture.credits.name` | `string` | No       | Credit attribution name                                |
 | `profilePicture.credits.url`  | `string` | No       | Link to credit source or creator                       |
 
-*The entire `profilePicture` object is optional.
+\*The entire `profilePicture` object is optional.
 
 ### Links/Socials
 
@@ -147,6 +147,7 @@ bun run preview
 ## Hosting
 
 ### Docker Deployment (Recommended)
+
 #### Quick Start
 
 ```bash
