@@ -14,7 +14,7 @@
 				async
 				defer
 				data-website-id={config.analytics.trackingId}
-				src={`${config.analytics.baseUrl}/umami.js`}
+				src={`${config.analytics.baseUrl}/script.js`}
 			></script>
 		{:else if config.analytics.type === 'google-analytics'}
 			<script
