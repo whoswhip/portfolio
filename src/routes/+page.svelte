@@ -229,7 +229,12 @@
 						{#each config.projects as project (project.id)}
 							<div class="flex flex-col gap-2 rounded-md border border-neutral-600 p-4">
 								<h2 class="text-2xl">{project.title}</h2>
-								<p>{project.description}</p>
+								<p
+									style="--primary: {config.primaryColor}"
+									class="[&_a]:text-(--primary) [&_a:hover]:underline"
+								>
+									{@html project.description}
+								</p>
 								<div class="mt-2 flex flex-col gap-2">
 									{#if project.gitUrl && project.gitProvider}
 										<a

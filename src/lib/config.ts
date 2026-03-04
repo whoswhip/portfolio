@@ -53,7 +53,8 @@ export const config: Configuration = {
 		{
 			id: 'sharpbin',
 			title: 'Sharpbin',
-			description: 'A pastebin-esque website with syntax highlighting and ephemeral paste support.',
+			description:
+				'A pastebin-esque website with syntax highlighting and ephemeral paste support built with C# ASP.net and SvelteKit.',
 			gitProvider: 'github',
 			gitUrl: 'https://github.com/whoswhip/sharpbin',
 			liveUrl: 'https://sharpbin.cc'
@@ -62,15 +63,16 @@ export const config: Configuration = {
 			id: 'anilyzer',
 			title: 'Anilyzer',
 			description:
-				'A website to analyze your anime and manga (mostly manga) statistics from Anilist.co using Mangabaka.org database dumps for series information.',
+				'A website to analyze your anime and manga (mostly manga) statistics from <a href="https://anilist.co">Anilist.co</a>' +
+				' using <a href="https://mangabaka.org">MangaBaka.org</a> database dumps for series information.',
 			gitProvider: 'github',
 			gitUrl: 'https://github.com/whoswhip/anilyzer',
 			liveUrl: 'https://anilyzer.whoswhip.dev'
 		}
 	],
-    analytics: {
-        type: 'umami',
-        baseUrl: 'https://analytics.whoswhip.dev',
-        trackingId: '5a44cf17-caa9-48e6-b213-6259bb015e59'
-    }
+	analytics: {
+		type: 'umami',
+		baseUrl: 'https://analytics.whoswhip.dev',
+		trackingId: '5a44cf17-caa9-48e6-b213-6259bb015e59'
+	}
 };
