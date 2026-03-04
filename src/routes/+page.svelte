@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Mail, Globe, ChevronDown, ChevronUp, Heart, Info } from '@lucide/svelte';
+	import { Mail, Globe, ChevronDown, ChevronUp, Heart, Info, Blocks } from '@lucide/svelte';
 	import {
 		SiGithub,
 		SiPronounsdotpage,
@@ -89,7 +89,7 @@
 	<meta name="theme-color" content={config.primaryColor} />
 </svelte:head>
 
-<main class="flex min-h-[calc(100vh-8rem)] w-full flex-col gap-12 bg-black font-medium md:flex-row">
+<main class="flex min-h-[calc(100vh-9rem)] w-full flex-col gap-12 bg-black font-medium md:flex-row">
 	<div class="flex w-full shrink-0 flex-col gap-2 md:max-w-75">
 		{#if config.profilePicture}
 			<div class="relative">
@@ -284,6 +284,16 @@
 				class="hover:underline"
 				style="color: {config.primaryColor}">whoswhip</a
 			>
+		</div>
+
+		<div class="flex items-center gap-1">
+			<span style="color: {config.primaryColor}">
+				<Blocks size={16} />
+			</span>
+			Built with
+			<a href="https://svelte.dev" class="hover:underline" style="color: {config.primaryColor}"
+				>Svelte</a
+			> since 2026
 		</div>
 
 		<div class="flex items-center gap-1">
