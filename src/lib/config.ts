@@ -67,5 +67,10 @@ export const config: Configuration = {
 			gitUrl: 'https://github.com/whoswhip/anilyzer',
 			liveUrl: 'https://anilyzer.whoswhip.dev'
 		}
-	]
+	],
+    analytics: {
+        type: 'umami',
+        baseUrl: 'https://analytics.whoswhip.dev',
+        trackingId: '5a44cf17-caa9-48e6-b213-6259bb015e59'
+    }
 };
