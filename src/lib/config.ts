@@ -9,7 +9,7 @@ export const config: Configuration = {
 	},
 	primaryColor: '#ddbe94',
 	pronouns: 'He/Him',
-	timezone: -5,
+	timezone: -4,
 	links: [
 		{
 			id: 'github',
