@@ -10,7 +10,7 @@ export interface Configuration {
 	profilePicture?: ProfilePicture;
 	primaryColor: string;
 	pronouns: string;
-	timezone: number;
+	timezone: string;
 	links?: Link[];
 	projects?: Project[];
 	analytics?: Analytics;

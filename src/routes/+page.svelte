@@ -15,10 +15,30 @@
 	import { config } from '$lib/config';
 
 	let time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+	let timezoneOffset = 'UTC';
 	let showProjects = true;
 	let showCreditsTooltip = false;
 	let hideCreditsTooltipTimeout: ReturnType<typeof setTimeout> | undefined;
 	let clockInterval: ReturnType<typeof setInterval> | undefined;
+
+	const getUtcOffset = (timeZone: string, date: Date) => {
+		const tzName = new Intl.DateTimeFormat('en-US', {
+			timeZone,
+			timeZoneName: 'shortOffset'
+		})
+			.formatToParts(date)
+			.find((part) => part.type === 'timeZoneName')?.value;
+
+		const match = tzName?.match(/^GMT(?:(?<sign>[+-])(?<hours>\d{1,2})(?::(?<minutes>\d{2}))?)?$/);
+		if (!match?.groups) {
+			return 'UTC+00:00';
+		}
+
+		const sign = match.groups.sign ?? '+';
+		const hours = String(match.groups.hours ?? '0').padStart(2, '0');
+		const minutes = String(match.groups.minutes ?? '00').padStart(2, '0');
+		return `UTC${sign}${hours}:${minutes}`;
+	};
 
 	const getIcon = (socialId: string) => {
 		const icons: Record<string, { component: Component; size: number }> = {
@@ -53,9 +73,12 @@
 
 	const updateTime = () => {
 		const now = new Date();
-		const utc = new Date(now.getTime() + now.getTimezoneOffset() * 60000);
-		const localtime = new Date(utc.getTime() + config.timezone * 3600000);
-		time = localtime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+		time = now.toLocaleTimeString([], {
+			hour: '2-digit',
+			minute: '2-digit',
+			timeZone: config.timezone
+		});
+		timezoneOffset = getUtcOffset(config.timezone, now);
 	};
 
 	if (browser) {
@@ -169,10 +192,7 @@
 						<span>
 							{time}
 							•
-							<span>
-								UTC
-								{config.timezone === 0 ? '' : (config.timezone > 0 ? '+' : '') + config.timezone}
-							</span>
+							<span>{timezoneOffset}</span>
 						</span>
 					</div>
 				</div>
