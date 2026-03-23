@@ -231,7 +231,7 @@
 				<div class="mt-2 flex justify-between">
 					<h1 class="text-4xl">Projects</h1>
 					<button
-						class="p-1 hover:text-neutral-300"
+						class="p-1 hover:text-neutral-300 cursor-pointer"
 						on:click={() => (showProjects = !showProjects)}
 					>
 						{#if showProjects}
