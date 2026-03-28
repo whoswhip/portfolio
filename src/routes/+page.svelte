@@ -255,6 +255,7 @@
 									style="--primary: {config.primaryColor}"
 									class="[&_a]:text-(--primary) [&_a:hover]:underline"
 								>
+									<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 									{@html project.description}
 								</p>
 								<div class="mt-2 flex flex-col gap-2">
