@@ -205,7 +205,7 @@
 					<a href={link.url}>
 						<div class="flex w-full items-center gap-2 text-[16px] leading-6 text-white">
 							<span style="color: {config.primaryColor}">
-								<svelte:component this={getIcon(link.id).component} size={getIcon(link.id).size} />
+								<svelte:component this={getIcon(link.iconId).component} size={getIcon(link.iconId).size} />
 							</span>
 							{link.label}
 							<span
