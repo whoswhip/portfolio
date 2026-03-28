@@ -6,7 +6,8 @@
 		SiGitea,
 		SiGit,
 		SiX,
-		SiLastdotfm
+		SiLastdotfm,
+		SiKeybase
 	} from '@icons-pack/svelte-simple-icons';
 	import { browser } from '$app/environment';
 	import { onDestroy, type Component } from 'svelte';
@@ -46,7 +47,8 @@
 			gitea: { component: SiGitea, size: 18 },
 			x: { component: SiX, size: 18 },
 			lastfm: { component: SiLastdotfm, size: 18 },
-			email: { component: Mail, size: 18 }
+			email: { component: Mail, size: 18 },
+			keybase: { component: SiKeybase, size: 18 }
 		};
 		return icons[socialId] || { component: SiGit, size: 18 };
 	};

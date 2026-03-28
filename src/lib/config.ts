@@ -13,30 +13,42 @@ export const config: Configuration = {
 	links: [
 		{
 			id: 'github',
+			iconId: 'github',
 			label: 'Github',
 			url: 'https://github.com/whoswhip',
 			display: 'whoswhip'
 		},
 		{
 			id: 'gitea',
+			iconId: 'gitea',
 			label: 'Gitea',
 			url: 'https://git.whoswhip.dev/whoswhip',
 			display: 'whoswhip'
 		},
 		{
+			id: 'keybase',
+			iconId: 'keybase',
+			label: 'Keybase',
+			url: 'https://keybase.io/whoswhip',
+			display: 'whoswhip'
+		},
+		{
 			id: 'x',
+			iconId: 'x',
 			label: 'X',
 			url: 'https://x.com/whereswhip',
 			display: 'whereswhip'
 		},
 		{
 			id: 'lastfm',
+			iconId: 'lastfm',
 			label: 'Last.fm',
 			url: 'https://www.last.fm/user/whoswhip',
 			display: 'whoswhip'
 		},
 		{
 			id: 'email',
+			iconId: 'email',
 			label: 'Email',
 			url: 'mailto:contact@whoswhip.dev',
 			display: 'contact@whoswhip.dev'
